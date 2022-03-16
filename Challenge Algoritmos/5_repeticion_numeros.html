@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetición de números</title>
+    <style>input{padding: 5px 10px; margin: 20px; display: block;} h4{margin: 20px}</style>
+
+    <script>    //En el inciso 'd' al decir "suma de los números" entiendo que se refiere a los 3 anteriores.
+        var mayor=0, menor=10000, suma=0, pares=0; // Se inicializan las variables que van a guardar los resultados.                         
+
+        function Agregar(){                                         //Guardo el valor del número ingresado (utilizo la función Number
+            const num=Number(document.getElementById("num").value); //para asegurarme de que sea de tipo Number y evitar problemas).
+            if(num==(-1)){      //Condicional que termina la sentencia y genera una respuesta.
+                document.write(`<h4>El mayor es `+mayor+`, el menor es `+menor+`, 
+                la suma de todos los numeros ingresados es de `+suma+` y por último, 
+                la suma de los números pares ingresados es de `+pares) };
+            if(num>mayor){ mayor=num; }; //Condicionales que obtienen el mayor,
+            if(num<menor){ menor=num; }; //el menor y sumar los pares.
+            if(num%2==0){ pares+=num; };
+            suma+=num;    
+            alert("se agregó el número "+num); //Mensaje que iforma cuando se introduce un número.
+        }
+    </script>
+</head>
+<body>
+    <h4>Introduce un número (y cuando quieras terminar, utiliza el "-1"):</h4> <!--Interfaz donde se introducen los datos.-->
+    <input type="number" id="num">
+    <input type="button" value="Agregar" onclick="Agregar()">
+</body>
+</html>

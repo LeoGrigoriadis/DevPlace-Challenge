@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sueldo Empleado</title>
+    <style>input{padding: 5px 10px; margin: 20px; display: block;} h4{margin: 20px}</style>
+
+    <script>
+        function Calcular(){
+            const valor=document.getElementById("valor").value;   //Inicializo las variables con
+            const nombre=document.getElementById("nombre").value; //los datos obtenidos.
+            const ant=document.getElementById("ant").value;
+            const horas=document.getElementById("horas").value;
+            
+            var total=valor*horas;         //Calculo el valor total de su horas y después, confirmo
+            if(ant>10){ total+=(ant*30) }; // si cumple la condición de más de 10 años de antigüedad.
+
+            document.write(`<h4>El empleado `+nombre+`, con `+ant+` años de antiguedad,
+                debe recibir una suma de $`+total+`</h4>`); //Imprimo el resultado.
+        }
+    </script>
+</head>
+<body>
+    <h4>Ingrese los datos del empleado:</h4> <!-- Creé el formulario para obtener los datos-->
+    <input type="number" id="valor" placeholder="Valor hora:">
+    <input type="text" id="nombre" placeholder="Nombre Completo:">
+    <input type="number" id="ant" placeholder="Antigüedad:">
+    <input type="number" id="horas" placeholder="Horas trabajadas:">
+    <input type="button" value="Calcular" onclick="Calcular()">
+</body>
+</html>

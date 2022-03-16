@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primo o no</title>
+    <style> input{ padding: 5px 10px; margin: 20px; display: block;} </style>
+
+    <script>
+        function Comprobar(){
+            const numero=document.getElementById("numero").value; //Inicializo la variable con el valor que obtuve del input #numero.
+            let confirm=false; //Inicializo una variable booleana que me confirmará si el número es primo o no.
+            
+            for(let i=2;i<(numero/2)+1;i++){ //Realizo un bucle FOR el cual va a recorrer los posibles divisores de mi #numero.
+                if(numero%i==0){confirm=true}} //Si encuentra uno, la variable booleana pasará a ser True.
+            
+            if(confirm) {alert("Este número no es primo.") //con estos condicionales, compruebo el estado de la variable booleana
+            }else if(numero==1||numero==0) {alert("Este número no es ni primo ni compuesto.") // e imprimo un resultado.
+            }else {alert("Este número es primo.")}
+        }
+    </script>
+
+</head>
+<body>
+    <h4 style="margin: 20px">Ingrese un número para comprobar si es o no primo:</h4>
+    <input type="number" id="numero"> <!--Desde este elemento se introduce el número que se va a utilizar-->
+    <input type="button" value="Comprobar" onclick="Comprobar()"> <!--Este elemento botón va a accionar la función que confirme si el número es primo o no-->
+</body>
+</html>

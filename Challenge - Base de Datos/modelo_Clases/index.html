@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetición de números</title>
+    <style>input{padding: 5px 10px; margin: 20px; display: block;} h4{margin: 20px}</style>
+
+    <script>
+        function agregarEmpleado(){         //Este clase es para agregar los datos del empelado a las variables.
+            let nombre=document.getElementById("nombre").value;
+            let apellido=document.getElementById("apellido").value;
+            let telefono=document.getElementById("telefono").value;
+            let email=document.getElementById("email").value;
+            let salario=document.getElementById("salario").value;
+            let antiguedad=document.getElementById("antiguedad").value;
+            let puesto=document.getElementById("puesto").value;puesto
+            let municipalidad=document.getElementById("municipalidad").value;
+            const emp= new Empleado(nombre,apellido,telefono,email,salario,antiguedad,puesto,municipalidad); //Creo el objeto con los datos obtenidos
+            emp.filtro();
+        }
+        class Empleado{ //Creo la clase con su constructor.
+            constructor(nombre,apellido,telefono,email,salario,antiguedad,puesto,municipalidad){
+                this.nombre=nombre;
+                this.apellido=apellido;
+                this.telefono=telefono;
+                this.email=email;
+                this.salario=salario;
+                this.antiguedad=antiguedad;
+                this.puesto=puesto;
+                this.municipalidad=municipalidad;
+            }
+            filtro(){ //Y un filtro que me va a permitir identificar los empleados que solicitan.
+                if(this.municipalidad.search("pais")!=(-1) && this.salario>70000 && this.antiguedad>=10 && this.antiguedad<=15){
+                    alert("El empleado "+this.nombre+this.apellido+", su telefono es "+this.telefono+", su email es "+this.email+", su salario es de $"+this.salario+", su antiguedad de "+this.antiguedad+", su puesto es "+this.puesto+" y participa en la municipalidad "+this.municipalidad);
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h4>Datos del empleado:</h4> <!--Interfaz donde se introducen los datos.-->
+    <input type="text" id="nombre" placeholder="nombre: ">
+    <input type="text" id="apellido" placeholder="apellido: ">
+    <input type="text" id="telefono" placeholder="telefono: ">
+    <input type="text" id="email" placeholder="email: ">
+    <input type="text" id="salario" placeholder="salario: ">
+    <input type="text" id="antiguedad" placeholder="antiguedad: ">
+    <input type="text" id="puesto" placeholder="puesto: ">
+    <input type="text" id="municipalidad" placeholder="municipalidad: ">
+    <input type="button" value="Agregar" onclick="agregarEmpleado()">
+</body>
+</html>

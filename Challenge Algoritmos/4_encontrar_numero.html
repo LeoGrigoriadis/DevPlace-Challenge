@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buesqueda del número</title>
+    <style>input{padding: 5px 10px; margin: 20px; display: block;} h4{margin: 20px}</style>
+
+    <script>    
+        const num=Math.round(Math.random()*1001); //Generador del número aleatorio 
+        function Comprobar(){ 
+            let numUser=document.getElementById("numUser").value; //Inicializa la variable que almacena el número ingresado por el usuario.
+            if(numUser>num){ alert("El número ingresado es MAYOR al generado.")}        //Condicional que compara ambos números 
+            else if(numUser<num) { alert("El número ingresado es MENOR al generado.") } //y muestra si es mayor, menor o igual.
+            else if(numUser==num) { document.write("<h4>¡Acertaste, descubriste que el número era el "+num+"!</h4>"); }
+        }   
+    </script>
+</head>
+<body>
+    <h4>Intente adivinar el número generado (se encuentra entre 0 y 1000):</h4> <!--Interfaz donde se introducen los datos-->
+    <input type="number" id="numUser">
+    <input type="button" value="Comprobar" onclick="Comprobar()">
+</body>
+</html>

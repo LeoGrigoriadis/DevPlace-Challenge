@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordar contraseña</title>
+    <style>input{padding: 5px 10px; margin: 20px; display: block;} h2,h4{margin: 20px}</style>
+
+    <script>
+        var intentos=3; //Contador de intentos.
+        function guardarContra(){ //Función que permite la transición de pestañas.
+            var s1=document.getElementById("s1");s1.style.display="none";
+            var s2=document.getElementById("s2");s2.style.display="block";
+            const contra=document.getElementById("contra").value;
+            return contra; //Se guarda y retorna la variable de la primera contraseña.
+        }
+
+        function Comprobar(){
+            const contra=guardarContra(); //Se recupera la variable de la primera contraseña.
+            var text=document.getElementById("text").value; //Se guarda la segunda contraseña.
+            if(intentos==0){ //Utilizo un condicional para llegar a una respuesta.
+                var s2=document.getElementById("s2");s2.style.display="none"; //Otra transición de pestañas para el caso
+                var s4=document.getElementById("s4");s4.style.display="block"; //donde no coinciden las contraseñas.
+            }else if(intentos>0&&contra==text){  //Esta condición es para cuando se encuentra una coincidencia.
+                var s2=document.getElementById("s2");s2.style.display="none";
+                var s3=document.getElementById("s3");s3.style.display="block";
+            }else if(intentos>0&&contra!=text){ intentos--; alert("Te quedan "+intentos+" intentos"); }  
+        }   //Y este último condicional muestra una alerta por cada intento fallido.
+    </script>
+
+</head>
+<body>
+    <section id="s1" style="display: block"> <!--Las transiciones funcionan mostrando o escondiendo las estructuras-->
+        <h4>Ingrese una contraseña y recuérdela:</h4>
+        <input type="password" id="contra"> <!--Para eso cree 4 estructuras distintas para todo el proceso-->
+        <input type="button" value="Listo" onclick="guardarContra()">
+    </section>
+    <section id="s2" style="display: none">
+        <h4>Vuelva a escribir su contraseña (tiene 3 intentos):</h4>
+        <input type="password" id="text">
+        <input type="button" value="Comprobar" onclick="Comprobar()"> <!--Los botones llaman a una de las funciones antes vistas-->
+    </section>
+    <section id="s3" style="display: none">
+        <h2>Felicitaciones, recordás tu contraseña</h2>
+    </section>
+    <section id="s4" style="display: none">
+        <h2>Tenés que ejercitar la memoria</h2>
+    </section>
+</body>
+</html>
